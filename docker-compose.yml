@@ -1,0 +1,24 @@
+services:
+  seedlink-relay:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: seedlink-relay:local
+    container_name: seedlink-relay
+    ports:
+      - "18000:18000" # SeedLink port (serves data to clients)
+      - "16000:16000" # DataLink port (receives data from sources)
+    volumes:
+      - ringserver-data:/data
+      - ./config:/config:rw
+      - ./config/ringserver.conf:/config/ringserver.conf:ro
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "18000"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  ringserver-data:

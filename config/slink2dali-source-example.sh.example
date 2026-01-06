@@ -1,0 +1,4 @@
+#!/bin/sh
+# Example slink2dali source configuration
+# Copy this file to slink2dali-source-<name>.sh and customize for your source
+slink2dali -N <NETWORK> -x /config/slink2dali-<name>.state -nt 300 -s "<STREAM_SELECTOR>" -S "<STATION_SELECTOR>" <seedlink_host>:<port> localhost:16000

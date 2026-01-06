@@ -1,0 +1,10 @@
+# State files (generated at runtime, should not be committed)
+config/slink2dali-*.state
+!config/slink2dali-*.state.example
+slink2dali-*.state
+!slink2dali-*.state.example
+# Source scripts (actual implementations should not be committed)
+config/slink2dali-source-*.sh
+!config/slink2dali-source-*.sh.example
+slink2dali-source-*.sh
+!slink2dali-source-*.sh.example
